@@ -7,6 +7,9 @@ package pracHDVELH;
 
 import myUtils.ErrorNaiveHandler;
 
+import static java.lang.System.err;
+
+
 /**
  * @author prost
  *
@@ -15,11 +18,14 @@ public class NodeMultiple {
 	public static final int ERROR_STATUS_INDEX_OUT_OF_RANGE = -1;
 	public static final String ERROR_MSG_INDEX_OUT_OF_RANGE = "Index out of range";
 	public static int NODE_MAX_ARITY = 10;
+	private NodeMultiple[] daughters;
+	private Object data;
 
 	/* Overridden methods */
 	@Override
 	public String toString() {
 		/* TO BE COMPLETED */
+		return data.toString();
 	}
 
 	/* Getters/Setters */
@@ -33,6 +39,10 @@ public class NodeMultiple {
 	 */
 	public NodeMultiple getDaughter(int i) {
 		/* TO BE COMPLETED */
+		if(i >= NODE_MAX_ARITY || i < 0){
+			ErrorNaiveHandler.abort(ERROR_STATUS_INDEX_OUT_OF_RANGE,ERROR_MSG_INDEX_OUT_OF_RANGE);
+		}
+		return daughters[i];
 	}
 
 	/**
@@ -64,8 +74,10 @@ public class NodeMultiple {
 	 * @param daughters the daughters to set
 	 */
 	public void setDaughters(NodeMultiple[] daughters) {
-		/* TO BE COMPLETED */
+		this.daughters = daughters;
 	}
+
+
 
 	/**
 	 * Adds the given {@code daughter} node at the first available index.
@@ -77,6 +89,17 @@ public class NodeMultiple {
 	 */
 	public void addDaughter(NodeMultiple daughter) {
 		/* TO BE COMPLETED */
+		if (daughter == null) {
+			return;
+		}
+
+		int i=0;
+		while(daughters[i]!=null && i < NODE_MAX_ARITY) {
+			i++;
+		}
+		if(i < NODE_MAX_ARITY){
+			daughters[i] = daughter;
+		}
 	}
 
 	/**
@@ -84,6 +107,7 @@ public class NodeMultiple {
 	 */
 	public Object getData() {
 		/* TO BE COMPLETED */
+
 	}
 
 	/**
@@ -91,7 +115,9 @@ public class NodeMultiple {
 	 */
 	public void setData(Object data) {
 		/* TO BE COMPLETED */
+		this.data.set(data);
 	}
+
 
 	/**
 	 * @return {@code true} if and only if this node has at least one non-null
@@ -99,6 +125,8 @@ public class NodeMultiple {
 	 */
 	public boolean hasDaughters() {
 		/* TO BE COMPLETED */
+
+
 	}
 
 	/* Constructors */
@@ -107,6 +135,7 @@ public class NodeMultiple {
 	 */
 	public NodeMultiple() {
 		/* TO BE COMPLETED */
+		daughters = new NodeMultiple[NODE_MAX_ARITY];
 	}
 
 	/**
@@ -117,6 +146,8 @@ public class NodeMultiple {
 	 */
 	public NodeMultiple(Object data) {
 		/* TO BE COMPLETED */
+		this();
+		this.data = data;
 }
 
 // eof
