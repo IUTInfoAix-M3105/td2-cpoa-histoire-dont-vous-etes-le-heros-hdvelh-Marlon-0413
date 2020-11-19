@@ -107,6 +107,7 @@ public class NodeMultiple {
 	 */
 	public Object getData() {
 		/* TO BE COMPLETED */
+		return data;
 
 	}
 
@@ -115,7 +116,7 @@ public class NodeMultiple {
 	 */
 	public void setData(Object data) {
 		/* TO BE COMPLETED */
-		this.data.set(data);
+		this.data = data;
 	}
 
 
@@ -148,6 +149,7 @@ public class NodeMultiple {
 		/* TO BE COMPLETED */
 		this();
 		this.data = data;
+	}
 }
 
 // eof
