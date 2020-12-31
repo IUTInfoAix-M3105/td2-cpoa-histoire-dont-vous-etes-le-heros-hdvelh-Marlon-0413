@@ -67,7 +67,7 @@ public class NodeMultiple {
 	 * @return all the daughters
 	 */
 	public NodeMultiple[] getDaughters() {
-		/* TO BE COMPLETED */
+		return daughters;
 	}
 
 	/**
@@ -101,6 +101,7 @@ public class NodeMultiple {
 			daughters[i] = daughter;
 		}
 	}
+
 
 	/**
 	 * @return the content data
