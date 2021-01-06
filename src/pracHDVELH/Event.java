@@ -197,8 +197,10 @@ public class Event extends NodeMultiple {
 	public int interpretAnswer(){
 		System.out.println("Quel choix ?");
 		Scanner clavier = new Scanner(System.in);
-
-
+		/*String input = clavier.nextLine();
+		System.out.println(input);*/
+		int i = clavier.nextInt();
+		return i;
 	}
 
 	//Constructors
